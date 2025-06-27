@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinTrack - Profile</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b1120;
+      color: white;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.light {
+      background-color: #f5f5f5;
+      color: #111827;
+    }
+    .navbar {
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    .navbar h1 {
+      font-size: 1.5rem;
+    }
+    .navbar nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    body.light .navbar,
+    body.light .sidebar a,
+    body.light .card {
+      background-color: #fff;
+      color: #111827;
+    }
+    .container {
+      display: flex;
+      padding: 2rem;
+    }
+    .sidebar {
+      width: 220px;
+      background-color: #0f172a;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      background-color: #1e293b;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+    .sidebar a:hover {
+      background-color: #334155;
+    }
+    footer {
+      background: #1e293b;
+      padding: 1rem 2rem;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    footer a {
+      color: #94a3b8;
+      margin-left: 0.5rem;
+      text-decoration: none;
+    }
+    .main {
+      flex: 1;
+      margin-left: 2rem;
+    }
+    .main h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+    .card {
+      background-color: #1e293b;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h3 {
+      margin-bottom: 1rem;
+    }
+    label {
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      display: block;
+      color: #cbd5e1;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: none;
+      background-color: #334155;
+      color: white;
+    }
+    .btn {
+      background-color: #3b82f6;
+      border: none;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .progress-section p {
+      margin: 0.5rem 0 0.25rem;
+    }
+    .progress-bar {
+      background-color: #334155;
+      height: 10px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .progress-inner {
+      height: 100%;
+      background-color: #3b82f6;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #3b82f6;
+    }
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+    .notification-item {
+      margin-bottom: 1rem;
+      background: #2d3748;
+      padding: 1rem;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    .notification-item p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <h1>Budget Buddy</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="Investments.html">Investments</a>
+      <a href="#">Profile</a>
+    </nav>
+  </div>
+  <div class="container">
+    <aside class="sidebar">
+      <a href="#" onclick="showSection('profile')">Profile</a>
+      <a href="#" onclick="showSection('settings')">Settings</a>
+      <a href="#" onclick="showSection('notifications')">Notifications</a>
+      <a href="#">Payment Methods</a>
+      <a href="#">Sign Out</a>
+    </aside>
+    <main class="main">
+      <h2>Account</h2>
+      <div id="profile" class="card-section">
+        <form onsubmit="handleSubmit(event)">
+          <div class="card">
+            <h3>Personal Information</h3>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
+
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" placeholder="Enter your location" required />
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+            <button class="btn" type="submit">Submit</button>
+          </div>
+        </form>
+        <div class="card progress-section">
+          <h3>Financial Goals</h3>
+          <p>Emergency Fund</p>
+          <div class="progress-bar">
+            <div class="progress-inner" style="width: 40%;"></div>
+          </div>
+          <p>₹2,00,000 / ₹5,00,000</p>
+
+          <p>Travel Fund</p>
+          <div class="progress-bar">
+            <div class="progress-inner" style="width: 50%;"></div>
+          </div>
+          <p>₹50,000 / ₹1,00,000</p>
+        </div>
+      </div>
+      <div id="settings" class="card-section" style="display:none">
+        <div class="card">
+          <h3>Settings</h3>
+          <p><strong>Display</strong></p>
+          <label>Theme</label>
+          <span>Dark mode is currently active</span> 
+          <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
+
+          <p style="margin-top: 1rem;"><strong>Currency</strong></p>
+          <label for="currency">Display Currency</label>
+          <select id="currency">
+            <option>INR (₹)</option>
+            <option>USD ($)</option>
+            <option>EUR (€)</option>
+          </select>
+
+          <p style="margin-top: 1rem;"><strong>Budget Settings</strong></p>
+          <label for="budget">Monthly Budget</label>
+          <input type="number" id="budget" placeholder="Set your spending limit" />
+        </div>
+      </div>
+      <div id="notifications" class="card-section" style="display:none">
+        <div class="card">
+          <h3>Notification Preferences</h3>
+          <div class="notification-item">
+            <div>
+              <p><strong>Budget Alerts</strong></p>
+              <p>Notify me when I'm close to budget limits</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="notification-item">
+            <div>
+              <p><strong>Unusual Activity</strong></p>
+              <p>Notify me about unusual spending</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="notification-item">
+            <div>
+              <p><strong>Investment Alerts</strong></p>
+              <p>Notify me about investment opportunities</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="notification-item">
+            <div>
+              <p><strong>Email Notifications</strong></p>
+              <p>Send notifications to my email</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer>
+    <div>FinTrack © 2025 All rights reserved.</div>
+    <div><a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Support</a></div>
+  </footer>
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const data = {
+        email: form.email.value,
+        phone: form.phone.value,
+        location: form.location.value,
+        password: form.password.value
+      };
+
+      const params = new URLSearchParams(data).toString();
+      window.open(`finance-details.html?${params}`, '_blank');
+
+
+    }
+
+    function showSection(sectionId) {
+      document.querySelectorAll('.card-section').forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById(sectionId).style.display = 'block';
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+  </script>
+</body>
+</html>

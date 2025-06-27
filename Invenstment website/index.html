@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinTrack - Financial Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      
+      margin: 0;
+      padding: 0;
+      background-color: #0f172a;
+      color: #fff;
+    }
+    header {
+      background-color: #1e293b;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav a, nav button {
+      color: #fff;
+      margin-left: 1rem;
+      text-decoration: none;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .container {
+      padding: 2rem;
+    }
+    .dashboard {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .card {
+      background-color: #1e293b;
+      padding: 1rem;
+      border-radius: 10px;
+      flex: 1;
+    }
+    .chart, .transactions {
+      margin-bottom: 2rem;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #1e293b;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 300px;
+    }
+    .modal-content h3 {
+      margin-top: 0;
+    }
+    .modal-content input, .modal-content select {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+    }
+    .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      background-color: #2563eb;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .close-btn {
+      float: right;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Budget Buddy</h1>
+    <nav>
+      <a href="#" class="active">Dashboard</a>
+      <a href="Investments.html">Investments</a>
+      <a href="profile.html">Profile</a>
+      <button onclick="openModal()">Add Transaction</button>
+    </nav>
+  </header>
+  <div class="container">
+    <h2>Financial Dashboard</h2>
+    <div class="dashboard">
+      <div class="card">
+        <h3>Monthly Salary</h3>
+        <p>₹50,000</p>
+        <div class="summary">↑ +2.5% vs last month</div>
+      </div>
+      <div class="card">
+        <h3>Today's Spending</h3>
+        <p>₹37,849</p>
+        <div class="summary">↓ -4.2% vs last month</div>
+      </div>
+      <div class="card">
+        <h3>Remaining Balance</h3>
+        <p>₹82,651</p>
+        <div class="summary">↑ +1.8% vs last month</div>
+      </div>
+    </div>
+    <div class="chart">
+      <h3>Spending Overview</h3>
+      <canvas id="spendingChart" height="100"></canvas>
+    </div>
+    <div class="card">
+      <h3>Recent Transactions</h3>
+      <div class="transactions" id="transactionList"></div>
+      <button class="btn">View All Transactions</button>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal" id="transactionModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <h3>Add Transaction</h3>
+      <label><input type="radio" name="type" value="expense" checked> Expense</label>
+      <label><input type="radio" name="type" value="income"> Income</label>
+      <input type="text" id="descInput" placeholder="e.g., Grocery shopping">
+      <input type="number" id="amountInput" placeholder="₹ 0.00">
+      <select id="categorySelect">
+        <option>Select a category</option>
+        <option>Food</option>
+        <option>Salary</option>
+        <option>Entertainment</option>
+        <option>Freelance</option>
+      </select>
+      <div class="modal-buttons">
+        <button class="btn" onclick="closeModal()">Cancel</button>
+        <button class="btn" onclick="addTransaction()">Add Transaction</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const ctx = document.getElementById('spendingChart').getContext('2d');
+    const spendingChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed'],
+        datasets: [
+          {
+            label: 'Expenses',
+            data: [200, 400, 300, 350, 420, 390, 280],
+            borderColor: '#ef4444',
+            backgroundColor: 'transparent',
+            tension: 0.4
+          },
+          {
+            label: 'Income',
+            data: [500, 600, 550, 700, 800, 750, 900],
+            borderColor: '#22c55e',
+            backgroundColor: 'transparent',
+            tension: 0.4
+          }
+        ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              callback: function(value) {
+                return '₹' + value;
+              },
+              color: '#cbd5e1'
+            }
+          },
+          x: {
+            ticks: {
+              color: '#cbd5e1'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#cbd5e1'
+            }
+          }
+        }
+      }
+    });
+
+    function openModal() {
+      document.getElementById('transactionModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('transactionModal').style.display = 'none';
+    }
+
+    function addTransaction() {
+      const type = document.querySelector('input[name="type"]:checked').value;
+      const desc = document.getElementById('descInput').value;
+      const amount = parseFloat(document.getElementById('amountInput').value);
+      const category = document.getElementById('categorySelect').value;
+      const date = new Date().toLocaleDateString();
+      if (!desc || !amount || category === 'Select a category') return alert('Please fill out all fields');
+
+      // Add to chart
+      const chartData = spendingChart.data.datasets.find(d => d.label.toLowerCase() === type);
+      chartData.data.shift();
+      chartData.data.push(amount);
+      spendingChart.update();
+
+      // Add to transactions
+      const transactionList = document.getElementById('transactionList');
+      const transactionDiv = document.createElement('div');
+      transactionDiv.className = 'transaction';
+      transactionDiv.innerHTML = `
+        <div class="transaction-info">
+          <strong>${desc}</strong>
+          <span>${category.toLowerCase()} • ${date}</span>
+        </div>
+        <div>${type === 'income' ? '+' : '-'}₹${amount.toLocaleString()}</div>
+      `;
+      transactionList.prepend(transactionDiv);
+
+      closeModal();
+    }
+  </script>
+</body>
+</html>

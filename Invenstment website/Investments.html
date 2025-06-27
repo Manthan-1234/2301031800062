@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FinTrack - Investments</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1e293b;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+
+    nav a.active {
+      color: white;
+      border-bottom: 2px solid white;
+      padding-bottom: 0.2rem;
+    }
+
+   
+   
+
+    main {
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .tab {
+      padding: 0.5rem 1rem;
+      background: #1e293b;
+      color: #94a3b8;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab.active {
+      background: #334155;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .table-card {
+      background: #1e293b;
+      border-radius: 10px;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      color: #cbd5e1;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.75rem;
+      border-bottom: 1px solid #334155;
+    }
+
+    th {
+      font-weight: 600;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .fund-card {
+      background: #1e293b;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #cbd5e1;
+    }
+
+    footer {
+      background: #1e293b;
+      padding: 1rem 2rem;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    footer a {
+      color: #94a3b8;
+      margin-left: 0.5rem;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .tabs {
+        flex-direction: column;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .search-toggle {
+        width: 100%;
+      }
+
+      .search-toggle input {
+        flex: 1;
+        width: 100%;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Budget Buddy</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="#" class="active">Investments</a>
+      <a href="profile.html">Profile</a>
+      <!-- <button onclick="openModal()">Add Transaction</button> -->
+    </nav>
+  </header>
+  
+
+
+  <main>
+    <h1>Investments</h1>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="stocks"> Stocks </button>
+      <button class="tab" data-tab="mutual"> Mutual Funds </button>
+      <button class="tab" data-tab="ipo"> IPOs </button>
+      <button class="tab" data-tab="Penny"> Penny Stocks </button>
+      <button class="tab" data-tab="Fixed"> Fixed Deposits </button>
+    </div>
+
+    <section id="stocks" class="tab-content active">
+      <div class="table-card">
+        <h2>Top Performing Stocks</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Symbol</th>
+              <th>Price</th>
+              <th>Change</th>
+              <th>Market Cap</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Reliance Industries Ltd.</td><td>RELIANCE</td><td>₹2,456.75</td><td>↑ 1.25%</td><td>₹1656789B</td><td>☆</td></tr>
+            <tr><td>TCS</td><td>TCS</td><td>₹3,789.50</td><td>↑ 0.87%</td><td>₹1378450B</td><td>☆</td></tr>
+            <tr><td>Infosys</td><td>INFY</td><td>₹1,441.80</td><td>↑ 2.34%</td><td>₹589674B</td><td>☆</td></tr>
+            <tr><td>HDFC Bank Ltd.</td><td>HDFCBANK</td><td>₹1,675.35</td><td>↑ 0.92%</td><td>₹934567B</td><td>☆</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="mutual" class="tab-content">
+      <div class="card-grid">
+        <div class="fund-card"><h3>SBI Blue Chip Fund</h3><p>NAV: ₹52.45 | TY Return: +15.80% | 5Y: +72.30% | Risk: Moderate</p></div>
+        <div class="fund-card"><h3>Axis Long Term Equity Fund</h3><p>NAV: ₹67.89 | TY Return: +14.20% | 5Y: +68.70% | Risk: Moderate</p></div>
+        <div class="fund-card"><h3>HDFC Mid-Cap Opportunities Fund</h3><p>NAV: ₹89.52 | TY Return: +18.70% | 5Y: +85.10% | Risk: Moderate</p></div>
+        <div class="fund-card"><h3>ICICI Prudential Tech Fund</h3><p>NAV: ₹78.32 | TY Return: +18.90% | 5Y: +77.80% | Risk: High</p></div>
+        <div class="fund-card"><h3>Aditya Birla Corp Bond Fund</h3><p>NAV: ₹85.87 | TY Return: +7.10% | 5Y: +28.40% | Risk: Low</p></div>
+        <div class="fund-card"><h3>Nippon India Small Cap Fund</h3><p>NAV: ₹59.73 | TY Return: +22.80% | 5Y: +80.20% | Risk: High</p></div>
+      </div>
+    </section>
+
+    <section id="ipo" class="tab-content">
+      <div class="table-card">
+        <h2>Upcoming IPOs</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Expected Date</th>
+              <th>Price Range</th>
+              <th>Shares (M)</th>
+              <th>Expected Valuation</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>LIC India</td><td>Jun 15, 2023</td><td>₹902 - ₹949</td><td>221M</td><td>₹600000B</td><td>☆</td></tr>
+            <tr><td>Paytm</td><td>Jul 08, 2023</td><td>₹2080 - ₹2150</td><td>85M</td><td>₹150000B</td><td>☆</td></tr>
+            <tr><td>Zomato</td><td>Aug 22, 2023</td><td>₹72 - ₹76</td><td>1230M</td><td>₹75000B</td><td>☆</td></tr>
+            <tr><td>Nykaa</td><td>Sep 30, 2023</td><td>₹1085 - ₹1125</td><td>47M</td><td>₹50000B</td><td>☆</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="Penny" class="tab-content">
+        <div class="table-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Symbol</th>
+                <th>Price </th>
+                <th>Change</th>
+                <th>Volume</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr><td>Vodafone Idea</td><td>IDEA</td><td>₹13.00</td><td>+5.20%</td><td>98M</td><td>☆</td></tr>
+                <tr><td>South Indian Bank</td><td>SIB</td><td>₹22.00</td><td>+3.15%</td><td>45M</td><td>☆</td></tr>
+                <tr><td>RattanIndia Power</td><td>RTNPOWER</td><td>₹4.50</td><td>+8.00%</td><td>150M</td><td>☆</td></tr>
+
+            </tbody>
+          </table>
+        </div>
+      </section>
+    
+      <section id="Fixed" class="tab-content">
+        <div class="table-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Bank</th>
+                <th>Interest Rate</th>
+                <th>Tenure</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr><td>SBI</td><td>6.5% p.a.</td><td>5 Years</td><td>☆</td></tr>
+                <tr><td>HDFC Bank</td><td>7.0% p.a.</td><td>3 Years</td><td>☆</td></tr>
+                <tr><td>ICICI Bank</td><td>6.75% p.a.</td><td>4 Years</td><td>☆</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+  </main>
+   
+  
+  <footer>
+    <div>FinTrack © 2025 All rights reserved.</div>
+    <div><a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Support</a></div>
+  </footer>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.tab).classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
