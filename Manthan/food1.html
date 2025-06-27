@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>SOU Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      width: 100%;
+    }
+
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .video section {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .video-background video {
+      width: 100%;
+      height: 80%;
+      object-fit: cover;
+    }
+
+    .parent {
+      width: 100%;
+      padding: 1.3rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      position: relative;
+      z-index: 2;
+    }
+
+    .branding h3 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      font-size: 18px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    li:hover {
+      color: rgb(220, 248, 5);
+      cursor: pointer;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      background: rgb(220, 248, 5);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .main-section {
+      width: 100%;
+      display: flex;
+      padding: 4rem 3rem;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .heading-section {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      color: white;
+    }
+
+    .heading-section h2 {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+
+    .heading-section p {
+      font-size: 1.3rem;
+    }
+
+    #p1 {
+      margin-bottom: 0.3rem;
+    }
+
+    #p2 {
+      font-weight: 300;
+    }
+
+    .image-section {
+      width: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    #food-image {
+      width: 90%;
+      border-radius: 40px;
+      border: none;
+    }
+
+    .image-content {
+      position: absolute;
+      bottom: 70px;
+      left: 100px;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+      /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); */
+    }
+
+    /* .special-menu{
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      background: white;
+      padding: 4rem 0;
+      position: relative;
+      z-index: 2;
+    } */
+
+    .special-heading {
+      text-align: center;
+      margin-top: 7rem;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #333;
+      position: relative;
+      z-index: 3;
+      background-color: rgba(255, 255, 255, 0.95);
+
+    }
+
+
+
+    .card1-section {
+      position: relative;
+      z-index: 2;
+      padding: 2rem 3rem;
+      display: flex;
+      gap: 2rem;
+      overflow-x: hidden;
+      background-color: rgba(255, 255, 255, 0.9);
+      justify-content: center;
+      z-index: 10;
+      margin: top;
+
+    }
+
+    .card1 {
+      width: 100%;
+      background: white;
+      border-radius: 20px;
+      box-shadow: none;
+      overflow: hidden;
+    }
+
+    .card1 img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .card1-content {
+      padding: 1rem;
+    }
+
+    .card1-content h4 {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    .card1-content p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .scroll-section {
+      height: 15vh;
+      background: white;
+    }
+
+    .bg-fixed-section {
+      height: 60vh;
+      background-image: url('Kitchen.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+
+    }
+
+    .content {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .background-image-section img {
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 40px;
+    }
+
+    /* .grid-wrapper {
+      max-width: 1200px;
+      width: 100%;
+    } */
+
+
+    .news-heading {
+      display: flex;
+      justify-content: center;
+      font-size: 3.5rem;
+    }
+
+    .news-container {
+      display: grid;
+      gap: 20px;
+      padding: 4rem 10rem;
+    }
+
+    .news-section-1 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .news-section-2 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .news-card img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .news-card {
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .news-card img:hover {
+      transform: scale(1.2);
+    }
+  </style>
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="parent">
+      <div class="branding">
+        <h3>Crispy Kitchen</h3>
+      </div>
+      <div class="menu">
+        <ul>
+
+          <li><a href="food1.html">Home</a></li>
+          <li><a href="Story.html">Story</a></li>
+          <li>Menu</li>
+          <li>Our Updates</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+      <button>
+        <a href="register.html" class="btn">Reservation</a>
+        </button>
+      </div>
+
+    <div class="video-section">
+      <div class="video-background">
+        <video autoplay muted loop playsinline>
+          <source src="video1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="main-section">
+        <div class="heading-section">
+          <h2>Delicious Steaks</h2>
+          <p id="p1">4.4/5 ⭐⭐⭐⭐⭐</p>
+          <p id="p2">From 1206+ Customer reviews</p>
+        </div>
+        <div class="image-section">
+
+          <img id="food-image" src="image.jpg" alt="Food Image">
+          <div class="image-content">
+            <p>Steaks</p>
+            <p>⭐⭐⭐⭐⭐</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="special-heading">
+      <h1>Special Menu</h1>
+    </div>
+    <div>
+
+      <div class="card1-section">
+        <div class="card1">
+          <img src="image-card-1.jpg" alt="Burger">
+          <div class="card-content">
+            <h4>Juicy Burger</h4>
+            <p>Beefy, cheesy, and full of flavor.</p>
+          </div>
+        </div>
+        <div class="card1">
+          <img src="image-card-2.jpg" alt="Pizza">
+          <div class="card-content">
+            <h4>Tooplate Soup</h4>
+            <p>Thin crust with fresh mozzarella & basil.</p>
+          </div>
+        </div>
+        <div class="card1">
+          <img src="image-card-3.jpg" alt="Sushi">
+          <div class="card-content">
+            <h4>Italian Pizza</h4>
+            <p>Delicate rolls with wasabi and soy.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-section"></div>
+
+      <div class="bg-fixed-section"></div>
+
+      <div class="scroll-section"></div>
+      <div class="heading">
+        <h1>News & Events</h1>
+        <div class="news-container">
+          <div class="news-section-1">
+            <div class="news-card-1 news-card">
+              <img src="kitchen.jpg" />
+            </div>
+            <div class="news-card-2 news-card">
+              <img src="healthy.jpg" />
+            </div>
+          </div>
+          <div class="news-section-2">
+            <div class="news-card-3 news-card">
+              <img src="wine.jpg" />
+            </div>
+            <div class="news-card-4 news-card">
+              <img src="lady.jpg" />
+            </div>
+            <div class="news-card-5 news-card">
+              <img src="wine.jpg" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+</body>
+
+</html>

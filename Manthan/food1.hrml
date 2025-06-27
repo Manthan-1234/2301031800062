@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOU Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      overflow-x: hidden;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .video-background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .parent {
+      width: 100%;
+      padding: 1.3rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      position: relative;
+      z-index: 2;
+    }
+
+    .branding h3 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      font-size: 18px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    li:hover {
+      color: rgb(220, 248, 5);
+      cursor: pointer;
+    }
+
+    .button button {
+      font-size: 16px;
+      padding: 10px 20px;
+      background: rgb(220, 248, 5);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .main-section {
+      width: 100%;
+      display: flex;
+      padding: 4rem 3rem;
+      height: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .heading-section {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      color: white;
+    }
+
+    .heading-section h2 {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+
+    .heading-section p {
+      font-size: 1.3rem;
+    }
+
+    #p1 {
+      margin-bottom: 0.3rem;
+    }
+
+    #p2 {
+      font-weight: 300;
+    }
+
+    .image-section {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    #food-image {
+      width: 90%;
+      border-radius: 10px;
+    }
+
+    .image-content {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Cards Section */
+    .card-section {
+      position: relative;
+      z-index: 2;
+      padding: 2rem 3rem;
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .card {
+      min-width: 250px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .card-content h4 {
+      font-size: 20px;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .main-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .heading-section,
+      .image-section {
+        width: 100%;
+      }
+
+      .heading-section {
+        align-items: center;
+      }
+
+      .card-section {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="video1.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Navigation -->
+  <div class="parent">
+    <div class="branding">
+      <h3>Crispy Kitchen</h3>
+    </div>
+    <div class="menu">
+      <ul>
+        <li>Home</li>
+        <li>Story</li>
+        <li>Menu</li>
+        <li>Our Updates</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <div class="button">
+      <button>Reservation</button>
+    </div>
+  </div>
+
+  <!-- Main Section -->
+  <div class="main-section">
+    <div class="heading-section">
+      <h2>Delicious Steaks</h2>
+      <p id="p1">4.4/5 ⭐⭐⭐⭐⭐</p>
+      <p id="p2">From 1206+ Customer reviews</p>
+    </div>
+    <div class="image-section">
+      <!-- Embedded image via base64 OR replace with real image path -->
+      <img id="food-image" src="https://source.unsplash.com/featured/?steak" alt="Food Image">
+      <div class="image-content">
+        <p>Steaks</p>
+        <p>⭐⭐⭐⭐⭐</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards Section -->
+  <div class="card-section">
+    <div class="card">
+      <img src="https://source.unsplash.com/250x180/?burger" alt="Burger">
+      <div class="card-content">
+        <h4>Juicy Burger</h4>
+        <p>Beefy, cheesy, and full of flavor.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/250x180/?pizza" alt="Pizza">
+      <div class="card-content">
+        <h4>Italian Pizza</h4>
+        <p>Thin crust with fresh mozzarella & basil.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/250x180/?sushi" alt="Sushi">
+      <div class="card-content">
+        <h4>Fresh Sushi</h4>
+        <p>Delicate rolls with wasabi and soy.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/250x180/?pasta" alt="Pasta">
+      <div class="card-content">
+        <h4>Classic Pasta</h4>
+        <p>Served with creamy Alfredo sauce.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

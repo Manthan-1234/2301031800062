@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>SOU Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      width: 100%;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .navbar .logo {
+      font-weight: bold;
+      font-size: 28px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      margin: 0 15px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .navbar ul li a.active {
+      color:rgb(220, 248, 5);
+    }
+    li:hover {
+      color: rgb(220, 248, 5);
+      cursor: pointer;
+    }
+
+    .navbar .btn {
+      background-color:  rgb(220, 248, 5);
+      color: white;
+      padding: 10px 18px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 500;
+    }
+    
+
+    .hero-section {
+      position: relative;
+      height: 48vh;
+      background: url("STORY.jpg") center center/cover no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    .hero-content p {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .section-content {
+      display: flex;
+      justify-content: space-between;
+      padding: 60px 80px;
+      gap: 40px;
+    }
+
+    .section-content .left {
+      flex: 1;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .section-content .right {
+      flex: 1;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      margin-top: 50px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+
+    .btn.dark {
+      background-color: #212529;
+      color: white;
+    }
+
+    .btn.red {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+
+    .team-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .team-section h2 {
+      font-size: 36px;
+      margin-bottom: 50px;
+    }
+
+    .team-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .team-card {
+      width: 260px;
+    }
+
+    .team-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .team-card h3 {
+      font-size: 20px;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    .team-card p {
+      font-size: 14px;
+      color: #888;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<active>
+    <nav class="navbar">
+        <div class="logo">Crispy Kitchen</div>
+        <ul>
+          <li><a href="food1.html">Home</a></li>
+          <li><a href="Story.html">Story</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Our Updates</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      <button>
+        <a href="register.html" class="btn">Reservation</a>
+        </button>
+      </nav>
+    </active>
+
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Kitchen's Story</h1>
+      <p>this is how our kitchen evolved in new digital era</p>
+    </div>
+  </section>
+
+
+  <section class="section-content">
+    <div class="left">
+      Crispy Kitchen is the latest Bootstrap 5 HTML template provided by Tooplate website.
+      <div class="buttons">
+        <button class="btn dark">Check out News</button>
+        <button class="btn red">Say Hi</button>
+      </div>
+    </div>
+    <div class="right">
+      Since this website template is 100% free to use, you can edit and apply it for your commercial restaurant websites.
+      There are 6 HTML pages included in this template. Please click <strong>"Reservation"</strong> button on the top right
+      to see the pop-up reservation form.<br><br>
+      You are NOT allowed to redistribute the template ZIP file on any template download website. Please <a href="#">contact us</a> for more information.
+    </div>
+  </section>
+
+  <section class="team-section">
+    <h2>Team Members</h2>
+  
+    <div class="team-container">
+    
+      <div class="team-card">
+        <img src=".jpg" alt="Anand">
+        <h3>manthan parmar</h3>
+        <p>CEO & Founder</p>
+      </div>
+  
+    
+      <div class="team-card">
+        <img src=".jpg" alt="Manthan">
+        <h3>Anand</h3>
+        <p>Restaurant Manager</p>
+      </div>
+  
+
+      <div class="team-card">
+        <img src=".jpg" alt="Dhruv">
+        <h3>karan </h3>
+        <p>Money Management</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
