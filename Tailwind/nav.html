@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SO University Navbar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="text-gray-900">
+
+  <!-- Top Bar -->
+  <nav class="bg-red-800 text-white px-4 md:px-8 py-2 text-sm">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+      <div class="flex flex-wrap items-center gap-3 w-full md:w-3/4">
+        <p>Admission Helpline: +91-79-35201300 / +91-79-66046300</p>
+        <p><i class="fa-brands fa-whatsapp"></i> +91-90990-63464</p>
+      </div>
+      <div class="flex flex-col sm:flex-row justify-evenly items-center gap-2 w-full md:w-1/4">
+        <div class="flex gap-4">
+          <p>EXAM</p>
+          <p>IQAC</p>
+          <p>CAREERS</p>
+        </div>
+        <div class="flex gap-4">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-linkedin"></i>
+          <i class="fa-brands fa-youtube"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Navigation -->
+  <section class="bg-white text-black font-semibold py-4 px-4 md:px-12 border-b">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div class="flex justify-center lg:justify-start w-full lg:w-1/6">
+        <img src="https://silveroakuni.ac.in/upload/images/250x70.webp" alt="Logo" class="w-40 lg:w-64" />
+      </div>
+
+      <ul class="flex flex-wrap justify-evenly gap-4 md:gap-8 text-red-700 text-base w-full lg:w-4/6">
+        <li>About</li>
+        <li>Admissions</li>
+        <li>Academics</li>
+        <li>Events</li>
+        <li>Gallery</li>
+        <li>Placements</li>
+        <li>Student Corner</li>
+        <li>Contact</li>
+      </ul>
+
+      <div class="hidden lg:block w-1/6"></div>
+    </div>
+  </section>
+
+  <!-- Banner Image -->
+  <div>
+    <img src="university.jpg" alt="University" class="w-full h-auto object-cover" />
+  </div>
+
+  <!-- CTA Buttons -->
+  <div class="bg-red-900 px-4 md:px-8 py-6 flex flex-col sm:flex-row justify-center gap-4 sm:gap-8">
+    <button
+      class="bg-green-100 text-green-800 font-semibold px-8 sm:px-16 py-3 text-base rounded-full flex items-center justify-center gap-2">
+      <i class="fa-regular fa-circle-dot animate-ping"></i>
+      <span>360° VIRTUAL CAMPUS TOUR</span>
+    </button>
+    <button
+      class="bg-green-100 text-green-800 font-semibold px-8 sm:px-16 py-3 text-base rounded-full flex items-center justify-center gap-2">
+      <i class="fa-regular fa-circle-dot animate-ping"></i>
+      <span>EXPLORE YOUR CAREER</span>
+    </button>
+  </div>
+  
+
+</body>
+
+</html>
